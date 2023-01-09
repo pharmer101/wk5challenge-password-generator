@@ -90,20 +90,22 @@ var upperCasedCharacters = [
 
 // This is the array to use to generate the random characters for the password.  New options (such as special characters) are added to this if the user clicks "ok" when promtpted if they want to include the option in  their generated password 
 includedArrays = []
-var psLength  //!! *** HARD CODED FOR TEST - REMOVE NUMBER***
-var Newpass 
+var psLength  // varible to store the length of the password the user picks
+var Newpass  // varible to store the generated password 
 
-// FUNCTION 1 -----------------------------------------------Function to prompt user for password options --------------------------------------------------------------------------------------------------------------------------------------
+// FUNCTION 1 -----------------------------------------------Function to prompt user for password options-------------------------------------- 
+// Functions prompts option for length of password and then what characters to be used in the password. The selected characters are added to the includedArrays
 function getPasswordOptions() {
 
-  psLength = prompt("Testing - How many Characters do you want your password to be(betweeen 10 and 64");
+  psLength = prompt("**PLESE NOTE PASSWORD WILL BE DISPLAY IN THE CONSOLE *** - How many Characters do you want your password to be(betweeen 10 and 64");
   if (psLength.length ){
-    if(psLength < 10 || psLength  > 64 || psLength === " "){
+    if(psLength < 10 || psLength  > 64 || psLength === ""){
       pslength = prompt("That is not a valid password length - please pick a number between 10 and 64")
   }}
-  console.log(psLength) // Check to seee if user input is collected 22
+  console.log(psLength) 
   
-  
+// checking if user wants their password to include lowercase case charaters - if the array is added to the incluidedArrays array
+
   var lower = false
   var result = confirm("Do you want the password to include lowercase charaters?")
   
@@ -155,7 +157,8 @@ function getPasswordOptions() {
 
 
 
-//----------------------Second function --------------------------------------------------- get random element--------------------------------------------
+//----------------------Second function --------------------------------------------------- get random --element-------------------
+// Get Random function generated a random number between 1 and the length of includedArrays. The array of the index for the random number is then stored in the varible randomletter 
 
 // Function for getting a random element from an array33
  function getRandom() {
@@ -169,7 +172,9 @@ function getPasswordOptions() {
 
 
   
-// Function to generate password with user input
+// Function 3 - ------------------------------to generate password with user input---uses the getRandom number to pick the characters ----
+// for the lengh of the user picked password (psLength) getRandom picks a character and adds it to the varible chosenpass
+
 
 function GeneratePssword(funct){
   var chosenpass = []
@@ -186,7 +191,7 @@ function GeneratePssword(funct){
   }
 
 
-//-------------------------prewritten coce - Do not touch-----------------------------------------------------
+//-------------------------prewritten code - Do not touch-----------------------------------------------------
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
