@@ -90,7 +90,7 @@ var upperCasedCharacters = [
 
 // This is the array to use to generate the random characters for the password.  New options (such as special characters) are added to this if the user clicks "ok" when promtpted if they want to include the option in  their generated password 
 includedArrays = []
-var psLength  // varible to store the length of the password the user picks
+var psLength = 0  // varible to store the length of the password the user picks
 var Newpass  // varible to store the generated password 
 
 // FUNCTION 1 -----------------------------------------------Function to prompt user for password options-------------------------------------- 
@@ -98,11 +98,19 @@ var Newpass  // varible to store the generated password
 function getPasswordOptions() {
 
   psLength = prompt("**PLESE NOTE PASSWORD WILL BE DISPLAY IN THE CONSOLE *** - How many Characters do you want your password to be(betweeen 10 and 64");
-  if (psLength.length ){
-    if(psLength < 10 || psLength  > 64 || psLength === ""){
-      pslength = prompt("That is not a valid password length - please pick a number between 10 and 64")
-  }}
-  console.log(psLength) 
+  // if (psLength.length ){
+  //   if(psLength < 10 || psLength  > 64 || psLength === ""){
+  //     pslength = prompt("That is not a valid password length - please pick a number between 10 and 64")
+  // }}
+  // console.log(psLength) 
+
+  // psLength = prompt("TEST SCRIPT - How many Characters do you want your password to be(betweeen 10 and 64");
+
+  while(psLength < 10 || psLength  > 64 || psLength ==='' || isNaN(psLength)){
+    psLength = prompt("Please enter a valid number - between 10 and 64")
+  }
+  //console.log(psLength) // Check to seee if user input is collected 22
+  
   
 // checking if user wants their password to include lowercase case charaters - if the array is added to the incluidedArrays array
 
@@ -113,7 +121,7 @@ function getPasswordOptions() {
   var lower = true
   includedArrays = includedArrays.concat(lowerCasedCharacters)
   }
-  console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
+  //console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
   
   // checking if user wants their password to include Upper case charaters - if the array is added to the incluidedArrays array
   
@@ -125,7 +133,7 @@ function getPasswordOptions() {
   var upper = true
   includedArrays = includedArrays.concat(upperCasedCharacters)
   }
-  console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
+  //console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
   
   
   // checking if user wants their password to include nummeric charaters - if the numeric array is added to the incluidedArrays array
@@ -136,7 +144,7 @@ function getPasswordOptions() {
   var numeric = true
    includedArrays= includedArrays.concat(numericCharacters)
   }
-  console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
+  //console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
   
   
   // checking if user wants their password to include special charaters - if so the array is added to the incluidedArrays array
@@ -149,9 +157,9 @@ function getPasswordOptions() {
   var special = true
   includedArrays = includedArrays.concat(specialCharacters)
   }
-  console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
+ // console.log(includedArrays) // check the arrays have been added to the included arrays or not depending on user choice 
   
-  console.log(" The final chosen characterset by user is " + includedArrays)
+  // console.log(" The final chosen characterset by user is " + includedArrays)
   }
   
 
@@ -165,8 +173,8 @@ function getPasswordOptions() {
     arr =   includedArrays                   //upperCasedCharacters
     let x = Math.floor(Math.random() * arr.length); // Testing with uppercase array
     let randomLetter = arr[x]
-    console.log("The array to chose your passwords from is " + arr)
-    console.log("the chosen character " + randomLetter )
+    // console.log("The array to chose your passwords from is " + arr)
+    // console.log("the chosen character " + randomLetter )
     return randomLetter
   }
 
@@ -178,13 +186,13 @@ function getPasswordOptions() {
 
 function GeneratePssword(funct){
   var chosenpass = []
-  console.log(chosenpass)
+  // console.log(chosenpass)
   
   for(let i = 0; i < psLength ; i++){
       
       x = funct()
       chosenpass.push(x) 
-      console.log(chosenpass)
+      // console.log(chosenpass)
   }
   Newpass = chosenpass.join("")
   console.log("Your chosen password is " + Newpass)
